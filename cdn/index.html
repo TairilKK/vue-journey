@@ -49,15 +49,17 @@
 
     <div id="app">
       <a :href="url">Docs</a>
+
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books" :class="{fav: book.isFavorite}">
+          <li v-for="book in books" :class="{fav: book.isFavorite}" @click="toggleFavorite(book)">
             <img :src="book.img" :alt="book.title">
             <h1>{{book.title}}</h1>
             <p>{{book.author}}</p>
           </li>
         </ul>
       </div>
+
       <button @click="toggleShowBooks">
         <span v-if="showBooks">Hide Books</span>
         <span v-else>Show Books</span>
