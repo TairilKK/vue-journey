@@ -7,16 +7,42 @@
 
     <title>Learning Vue</title>
     <style>
-      .box {
-        padding: 100px 0;
-        display: inline-block;
-        text-align: center;
-        width: 400px;
-        background-color: #ddd;
-        margin: 20px;
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
       }
-    </style>
+      h1 {
+        text-align: center;
+      }
+      #app {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+      }
+      li {
+        display: flex;
+        margin-bottom: 10px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      img {
+        max-width: 100px;
+        border-radius: 4px;
+      }
+      li.fav {
+        font-weight: bold;
+        background: #eff;
+      }
 
+    </style>
   </head>
   <body>
     <h1>Hello, Vue :)</h1>
@@ -25,9 +51,9 @@
       <a :href="url">Docs</a>
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books">
+          <li v-for="book in books" :class="{fav: book.isFavorite}">
             <img :src="book.img" :alt="book.title">
-            <h3>{{book.title}}</h3>
+            <h1>{{book.title}}</h1>
             <p>{{book.author}}</p>
           </li>
         </ul>
