@@ -1,6 +1,7 @@
 const app = Vue.createApp({
   data() {
     return {
+      showBooks: true,
       title: "The Final Empire",
       author: "Brandon Sanderson",
       age: 45,
@@ -8,8 +9,8 @@ const app = Vue.createApp({
   },
 
   methods: {
-    changeTitle() {
-      this.title = "The Well of Ascension";
+    toggleShowBooks() {
+      this.showBooks = !this.showBooks;
     },
   },
 });
