@@ -8,19 +8,19 @@ const app = Vue.createApp({
           title: "Zoo",
           author: "Author 1",
           img: "https://picsum.photos/200",
-          isFavorite: false,
+          isFavourite: false,
         },
         {
           title: "Monkey",
           author: "Author 2",
           img: "https://picsum.photos/200",
-          isFavorite: true,
+          isFavourite: true,
         },
         {
           title: "Donkey",
           author: "Author 3",
           img: "https://picsum.photos/200",
-          isFavorite: true,
+          isFavourite: true,
         },
       ],
     };
@@ -30,8 +30,13 @@ const app = Vue.createApp({
     toggleShowBooks() {
       this.showBooks = !this.showBooks;
     },
-    toggleFavorite(book) {
-      book.isFavorite = !book.isFavorite;
+    toggleFavourite(book) {
+      book.isFavourite = !book.isFavourite;
+    },
+  },
+  computed: {
+    filteredBooks() {
+      return this.books.filter((book) => book.isFavourite);
     },
   },
 });
