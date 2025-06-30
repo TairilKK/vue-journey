@@ -1,7 +1,7 @@
 <template>
   <h1>{{ title }}</h1>
   <p>Welcome ...</p>
-  <div v-if="showModal">
+  <teleport to=".modals" v-if="showModal">
     <Modal theme="red" @close="toggleModal">
       <template v-slot:links>
         <a href="#">sign up now</a>
@@ -11,7 +11,7 @@
       <h1>Movie title</h1>
       <p>Some description</p>
     </Modal>
-  </div>
+  </teleport>
   <button @click.alt="toggleModal">open modal(alt)</button>
 </template>
 
@@ -37,7 +37,8 @@ export default {
 </script>
 
 <style>
-#app {
+#app,
+.modals {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

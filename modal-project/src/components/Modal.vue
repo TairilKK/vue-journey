@@ -1,7 +1,6 @@
 <template>
   <div class="modal" @click.self="closeModal">
     <div class="modal-content" :class="{ red: theme === 'red' }">
-      '{{ theme }}'
       <slot></slot>
       <slot name="links"></slot>
     </div>
