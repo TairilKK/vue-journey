@@ -1,5 +1,7 @@
 <template>
-  <div class="block" v-if="showBlock" @click="stopTimer">Click me!</div>
+  <div class="placeholder" @click="check">
+    <div class="block" v-if="showBlock" @click="stopTimer">Click me!</div>
+  </div>
 </template>
 
 <script>
@@ -28,11 +30,22 @@ export default {
       clearInterval(this.timer);
       this.$emit("end", this.reactionTime);
     },
+    check() {
+      console.log("Clicked on placeholder");
+      if (!this.showBlock) {
+        clearInterval(this.timer);
+        this.$emit("end", 0);
+      }
+    },
   },
 };
 </script>
 
 <style>
+.placeholder {
+  width: 100%;
+  height: 100vh;
+}
 .block {
   width: 40%;
   background-color: #42b983;
