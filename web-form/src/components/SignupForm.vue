@@ -24,7 +24,7 @@
       v-for="skill in skills"
       :key="skill"
       class="pill"
-      @click="removeSkill(skill)"
+      @click="deleteSkill(skill)"
     >
       {{ skill }}
     </div>
@@ -63,11 +63,10 @@ export default {
         this.tempSkill = "";
       }
     },
-    removeSkill(skill) {
+    deleteSkill(skill) {
       this.skills = this.skills.filter((s) => s !== skill);
     },
   },
-  watch: {},
 };
 </script>
 
