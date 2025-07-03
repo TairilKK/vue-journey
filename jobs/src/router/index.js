@@ -1,4 +1,4 @@
-import AboutView from "@/views/AboutView.vue";
+// import AboutView from "@/views/AboutView.vue";
 import JobsDetailsView from "@/views/jobs/JobsDetailsView.vue";
 import JobsView from "@/views/jobs/JobsView.vue";
 import NotFoundView from "@/views/NotFoundView.vue";
@@ -14,7 +14,7 @@ const routes = [
   {
     path: "/about",
     name: "about",
-    component: AboutView,
+    component: () => import("@/views/AboutView.vue"),
   },
   {
     path: "/jobs",
