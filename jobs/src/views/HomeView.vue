@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Home page</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, nemo
+      iure accusamus velit non necessitatibus laudantium aspernatur officia eos
+      quidem repellat odio nesciunt voluptates, amet nihil eaque maxime,
+      doloribus expedita unde in esse dicta. Adipisci, soluta nisi. Unde ratione
+      aperiam nobis explicabo vel porro quis quisquam repudiandae libero
+      excepturi consequuntur, officia quaerat nostrum at cumque? Provident
+      voluptatibus doloremque omnis libero. Quos culpa enim impedit cumque
+      voluptates eveniet, repudiandae facilis laudantium praesentium delectus,
+      aspernatur iure autem laboriosam id voluptatem quia quaerat non deleniti
+      cum voluptatibus odio molestias neque perferendis sequi! Asperiores
+      voluptatum necessitatibus quia illo pariatur tempora architecto
+      perspiciatis omnis numquam!
+    </p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat, nemo
+      iure accusamus velit non necessitatibus laudantium aspernatur officia eos
+      quidem repellat odio nesciunt voluptates, amet nihil eaque maxime,
+      doloribus expedita unde in esse dicta. Adipisci, soluta nisi. Unde ratione
+      aperiam nobis explicabo vel porro quis quisquam repudiandae libero
+      excepturi consequuntur, officia quaerat nostrum at cumque? Provident
+      voluptatibus doloremque omnis libero. Quos culpa enim impedit cumque
+      voluptates eveniet, repudiandae facilis laudantium praesentium delectus,
+      aspernatur iure autem laboriosam id voluptatem quia quaerat non deleniti
+      cum voluptatibus odio molestias neque perferendis sequi! Asperiores
+      voluptatum necessitatibus quia illo pariatur tempora architecto
+      perspiciatis omnis numquam!
+    </p>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
-  name: 'HomeView',
-  components: {
-    HelloWorld
-  }
-}
+  name: "HomeView",
+};
 </script>
