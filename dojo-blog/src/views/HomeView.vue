@@ -1,10 +1,10 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>My name is {{ name }} my age is {{ age }}</p>
-    <button @click="handleClick">Click me</button>
-    <button @click="age++">Add 1 to age</button>
-    <input type="text" v-model="name" />
+    <p>My name is {{ userOne.name }} my age is {{ userOne.age }}</p>
+    <button @click="updateUserOne">Click me</button>
+    <button @click="userOne.age++">Add 1 to age</button>
+    <input type="text" v-model="userOne.name" />
   </div>
 </template>
 
@@ -14,14 +14,13 @@ import { ref } from "vue";
 export default {
   name: "HomeView",
   setup() {
-    let name = ref("mario");
-    let age = ref(30);
+    let userOne = ref({ name: "mario", age: 30 });
 
-    const handleClick = () => {
-      name.value = "luigi";
+    const updateUserOne = () => {
+      userOne.value.name = "luigi";
     };
 
-    return { name, age, handleClick };
+    return { userOne, updateUserOne };
   },
 };
 </script>
