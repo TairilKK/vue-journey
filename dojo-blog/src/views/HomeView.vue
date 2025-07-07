@@ -1,53 +1,31 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <input type="text" v-model="search" />
-    <p>{{ search }}</p>
-    <div v-for="name in matchingNames" :key="name">
-      <p>{{ name }}</p>
-    </div>
-    <button @click="handleClick">Stop watching</button>
+    <PostList :posts="posts" />
   </div>
 </template>
 
 <script>
-import { computed, ref, watch, watchEffect } from "vue";
+import PostList from "@/components/PostList.vue";
+import { ref } from "vue";
 
 export default {
   name: "HomeView",
+  components: { PostList },
   setup() {
-    const search = ref("");
-    const names = ref([
-      "Anna",
-      "Bartek",
-      "Celina",
-      "Damian",
-      "Ewa",
-      "Filip",
-      "Grzegorz",
-      "Hanna",
-      "Igor",
-      "Julia",
+    const posts = ref([
+      {
+        title: "welcome to the blog",
+        body: "Witaj na naszym blogu! Znajdziesz tu wiele ciekawych artykułów na temat programowania, nowych technologii oraz praktycznych porad dla początkujących i zaawansowanych. Naszym celem jest dzielenie się wiedzą oraz inspirowanie do nauki i rozwoju. Śledź nasze wpisy, aby być na bieżąco z najnowszymi trendami w świecie IT. Jeśli masz pytania lub sugestie, zostaw komentarz pod artykułem – chętnie odpowiemy!",
+        id: 1,
+      },
+      {
+        title: "top 5 CSS tips",
+        body: "Poznaj nasze top 5 wskazówek dotyczących CSS, które ułatwią Ci pracę z front-endem: 1) Używaj zmiennych CSS dla spójności kolorów i rozmiarów. 2) Korzystaj z Flexboxa i Grida do tworzenia responsywnych układów. 3) Minimalizuj nadmiarowe selektory i klasy. 4) Testuj wygląd na różnych urządzeniach i przeglądarkach. 5) Dokumentuj niestandardowe rozwiązania w kodzie. Dzięki tym poradom Twoje projekty będą bardziej czytelne i łatwiejsze w utrzymaniu.",
+        id: 2,
+      },
     ]);
-
-    const stopWatch = watch(search, () => {
-      console.log("watch function run");
-    });
-
-    const stopEffect = watchEffect(() => {
-      console.log("watch effect ", search.value);
-    });
-
-    const matchingNames = computed(() =>
-      names.value.filter((n) => n.includes(search.value))
-    );
-
-    const handleClick = () => {
-      stopWatch();
-      stopEffect();
-    };
-
-    return { names, search, matchingNames, handleClick };
+    return { posts };
   },
 };
 </script>
