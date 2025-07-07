@@ -6,11 +6,12 @@
     <div v-for="name in matchingNames" :key="name">
       <p>{{ name }}</p>
     </div>
+    <button @click="handleClick">Stop watching</button>
   </div>
 </template>
 
 <script>
-import { computed, ref } from "vue";
+import { computed, ref, watch, watchEffect } from "vue";
 
 export default {
   name: "HomeView",
@@ -29,11 +30,24 @@ export default {
       "Julia",
     ]);
 
+    const stopWatch = watch(search, () => {
+      console.log("watch function run");
+    });
+
+    const stopEffect = watchEffect(() => {
+      console.log("watch effect ", search.value);
+    });
+
     const matchingNames = computed(() =>
       names.value.filter((n) => n.includes(search.value))
     );
 
-    return { names, search, matchingNames };
+    const handleClick = () => {
+      stopWatch();
+      stopEffect();
+    };
+
+    return { names, search, matchingNames, handleClick };
   },
 };
 </script>
