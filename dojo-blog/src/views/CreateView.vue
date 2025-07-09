@@ -22,8 +22,8 @@
 </template>
 
 <script>
-import router from "@/router";
 import { ref } from "vue";
+import { useRouter } from "vue-router";
 
 export default {
   setup() {
@@ -31,6 +31,9 @@ export default {
     const body = ref("");
     const tag = ref("");
     const tags = ref([]);
+
+    const router = useRouter();
+
     const handleKeydown = () => {
       const t = tag.value.trim().replace(/\s/, "");
       if (!tags.value.includes(t)) {
@@ -52,7 +55,7 @@ export default {
         body: JSON.stringify(post),
       });
 
-      router.push("/");
+      router.push({ name: "Home" });
     };
     return { title, body, tag, tags, handleKeydown, handleSubmit };
   },
